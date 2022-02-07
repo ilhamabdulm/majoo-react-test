@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import { Provider, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
 import { MainLayout } from 'components/layout';
 import { CreatePage, EditPage, MainPage } from 'pages';
 
-import { store } from 'store';
 import { initData } from 'store/todo-slice';
 
 function App() {
