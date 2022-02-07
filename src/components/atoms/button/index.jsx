@@ -18,17 +18,20 @@ const Button = (props) => {
     bordered = false,
     small,
     className = '',
+    danger = false,
   } = props;
   const classes = joinClasses([root, styles[variant], className]);
 
   return (
     <button
+      type={type}
+      danger={`${danger}`}
       className={classes}
       onClick={onClick}
       disabled={disabled}
       data-size={size}
-      data-bordered={bordered}
-      data-small={small}
+      data-bordered={`${bordered}`}
+      data-small={`${small}`}
     >
       {prefixIcon || null}
       {children}

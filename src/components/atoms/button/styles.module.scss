@@ -57,6 +57,11 @@
     &:hover {
       background-color: $BRAND1;
     }
+
+    &[data-danger='true'] {
+      background-color: $R700;
+      border: 1px solid $R700;
+    }
   }
 
   &.secondary {

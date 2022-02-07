@@ -52,22 +52,31 @@ export const createTodo = (newTodo) => (dispatch, getState) => {
 export const updateTodoStatus = (id, status) => (dispatch, getState) => {
   const state = getState();
   const data = state.todos.data;
-  const todoIndex = data?.findIndex((dt) => dt.id === id);
-  data[todoIndex]['status'] = status;
+  const clonned = data?.map((dt) =>
+    dt.id === id ? { ...dt, status: status } : { ...dt }
+  );
 
-  dispatch(setTodosData(data));
+  dispatch(setTodosData(clonned));
 };
 
 export const updateTodo = (id, updatedData) => (dispatch, getState) => {
   const state = getState();
   const data = state.todos.data;
-  const todoIndex = data?.findIndex((dt) => dt.id === id);
-  data[todoIndex] = updatedData;
+  const clonned = data?.map((dt) =>
+    dt.id === id ? { ...updatedData } : { ...dt }
+  );
 
-  dispatch(setTodosData(data));
+  dispatch(setTodosData(clonned));
 };
 
 export const selectTodos = (state) => state.todos.data;
+
 export const selectSelected = (state) => state.todos.selected;
+
+export const selectById = (id) => (state) => {
+  const todos = state.todos.data;
+
+  return todos.find((td) => String(td.id) === String(id));
+};
 
 export default todoSlice.reducer;

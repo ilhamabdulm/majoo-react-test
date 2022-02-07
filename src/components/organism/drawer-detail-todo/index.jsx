@@ -2,8 +2,9 @@ import { Button, Tag } from 'components/atoms';
 import { DrawerLayout } from 'components/layout';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { deleteTodo, selectSelected } from 'store/todo-slice';
+import { deleteTodo, selectSelected, updateTodoStatus } from 'store/todo-slice';
 
 import styles from './styles.module.scss';
 
@@ -13,6 +14,7 @@ const DrawerDetailTodo = (props) => {
   const { isOpen, onClose } = props;
   const todo = useSelector(selectSelected);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <DrawerLayout isOpen={isOpen} onClose={onClose}>
@@ -31,7 +33,14 @@ const DrawerDetailTodo = (props) => {
 
         <footer>
           <div className={action_group}>
-            <Button size="small" variant="secondary">
+            <Button
+              size="small"
+              variant="secondary"
+              onClick={() => {
+                onClose();
+                navigate('/edit/' + todo.id);
+              }}
+            >
               Ubah
             </Button>
             <Button
@@ -44,9 +53,30 @@ const DrawerDetailTodo = (props) => {
               Hapus
             </Button>
           </div>
-          <Button size="full" variant="primary">
-            Tandai Selesai
-          </Button>
+          {todo?.status ? (
+            <Button
+              size="full"
+              variant="primary"
+              danger
+              onClick={() => {
+                dispatch(updateTodoStatus(todo?.id, 0));
+                onClose();
+              }}
+            >
+              Tandai Belum Selesai
+            </Button>
+          ) : (
+            <Button
+              size="full"
+              variant="primary"
+              onClick={() => {
+                dispatch(updateTodoStatus(todo?.id, 1));
+                onClose();
+              }}
+            >
+              Tandai Selesai
+            </Button>
+          )}
         </footer>
       </section>
     </DrawerLayout>
