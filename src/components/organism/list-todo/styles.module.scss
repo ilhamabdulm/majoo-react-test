@@ -1,0 +1,8 @@
+@import '../../../styles/variables';
+
+.list_container {
+  padding: $PADDING;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

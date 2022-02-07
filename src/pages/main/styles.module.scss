@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.header {
+  padding: $PADDING;
+  background-color: $BRAND1;
+  color: $NEUTRAL1;
+}
+
+.floating_footer {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}

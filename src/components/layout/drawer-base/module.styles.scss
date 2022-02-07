@@ -1,0 +1,40 @@
+@import '../../../styles/variables';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: $NEUTRAL10, $alpha: 0.3);
+  z-index: 50;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $NEUTRAL1;
+  width: 100%;
+  max-width: 512px;
+  height: fit-content;
+  // max-height: 50%;
+  // overflow-y: auto;
+  padding: 2rem;
+  border-top-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  box-shadow: 0 5px 30px rgba($color: $NEUTRAL10, $alpha: 0.3);
+
+  &::before {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 10rem;
+    height: 0.5rem;
+    background-color: $BRAND1;
+    border-radius: 20rem;
+  }
+}

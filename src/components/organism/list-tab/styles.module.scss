@@ -1,0 +1,8 @@
+@import '../../../styles/variables';
+
+.tab_container {
+  padding: $PADDING;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
