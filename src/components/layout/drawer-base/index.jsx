@@ -1,9 +1,10 @@
+import React, { useEffect } from 'react';
 import OutsideHandler from 'react-outside-click-handler';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import styles from './styles.module.scss';
 import { Portal } from 'components/atoms';
-import { useEffect } from 'react';
+
+import styles from './styles.module.scss';
 
 const { overlay, content } = styles;
 

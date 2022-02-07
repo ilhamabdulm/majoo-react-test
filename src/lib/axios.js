@@ -3,7 +3,7 @@ import axios from 'axios';
 const BASE_URL = (target) =>
   `${
     process.env.REACT_APP_API_URL ||
-    'https://virtserver.swaggerhub.com/hanabyan/todo/1.0.0/to-do-list'
+    'https://virtserver.swaggerhub.com/hanabyan/todo/1.0.0'
   }/${target}`;
 
 const request = axios.create();

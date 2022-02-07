@@ -5,7 +5,7 @@ const TodoCard = (props) => {
 
   return (
     <Card shadow color="white" onClick={onClick}>
-      <h3>{title}</h3>
+      <h4>{title}</h4>
       <p>Created: {date}</p>
     </Card>
   );

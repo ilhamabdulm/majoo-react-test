@@ -1,0 +1,38 @@
+@import '../../../styles/variables';
+
+.root {
+  padding: $PADDING;
+
+  & > header {
+    border-bottom: 1px solid $BRAND1;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    & > span {
+      color: $NEUTRAL8;
+      font-size: $font-2xs;
+    }
+  }
+
+  & > footer {
+    .action_group {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 2rem 0;
+
+      & > button {
+        width: 100%;
+      }
+    }
+  }
+}
