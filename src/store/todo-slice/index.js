@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
 import fetchInitData from 'services/init-data';
 
@@ -34,6 +34,37 @@ export const deleteTodo = (id) => (dispatch, getState) => {
   const data = state.todos.data;
   const afterDeletions = data.filter((dt) => dt.id !== id);
   dispatch(setTodosData(afterDeletions));
+};
+
+export const createTodo = (newTodo) => (dispatch, getState) => {
+  const payload = {
+    id: nanoid(),
+    createdAt: new Date().toDateString(),
+    status: 0,
+    ...newTodo,
+  };
+  const state = getState();
+  const data = state.todos.data;
+
+  dispatch(setTodosData([...data, payload]));
+};
+
+export const updateTodoStatus = (id, status) => (dispatch, getState) => {
+  const state = getState();
+  const data = state.todos.data;
+  const todoIndex = data?.findIndex((dt) => dt.id === id);
+  data[todoIndex]['status'] = status;
+
+  dispatch(setTodosData(data));
+};
+
+export const updateTodo = (id, updatedData) => (dispatch, getState) => {
+  const state = getState();
+  const data = state.todos.data;
+  const todoIndex = data?.findIndex((dt) => dt.id === id);
+  data[todoIndex] = updatedData;
+
+  dispatch(setTodosData(data));
 };
 
 export const selectTodos = (state) => state.todos.data;

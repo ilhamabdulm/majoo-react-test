@@ -7,6 +7,7 @@ const { root } = styles;
 
 const Button = (props) => {
   const {
+    type = 'button',
     children,
     variant = '',
     prefixIcon = null,

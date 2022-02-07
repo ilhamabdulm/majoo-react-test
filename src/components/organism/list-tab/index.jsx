@@ -7,16 +7,17 @@ import styles from './styles.module.scss';
 const { tab_container } = styles;
 
 const ListTab = (props) => {
-  const { buttons } = props;
+  const { tabs } = props;
 
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
   return (
     <section className={tab_container}>
-      {buttons?.map((btn, idx) => {
+      {tabs?.map((btn, idx) => {
         return (
           <Button
+            key={idx}
             variant={filter === btn.values ? 'primary' : 'secondary'}
             size="small"
             onClick={() => {

@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+
+.root {
+  width: 100%;
+
+  & > p {
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+    color: $NEUTRAL8;
+  }
+
+  &__input {
+    color: $NEUTRAL8;
+    height: 100%;
+    width: 100%;
+    border: none;
+    padding: 0.4rem 0;
+    background-color: transparent;
+
+    &[type='password'] {
+      letter-spacing: 0.5rem;
+    }
+
+    &::placeholder {
+      color: $NEUTRAL2;
+      letter-spacing: normal;
+    }
+
+    &:focus:not(:disabled),
+    &:active:not(:disabled) {
+      border: none;
+      background-color: $NEUTRAL1;
+    }
+  }
+}
+
+.input_container {
+  padding: 1.2rem 1.6rem;
+  border: 1px solid $NEUTRAL5;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.4rem;
+
+  &:focus-within,
+  &:hover {
+    border-color: $BRAND1;
+    box-shadow: 0 1px 1px rgba($color: $BRAND1, $alpha: 0.5);
+  }
+
+  &__with_prefix {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    width: 100%;
+  }
+
+  &[data-disabled='true'] {
+    background-color: $NEUTRAL2;
+  }
+}

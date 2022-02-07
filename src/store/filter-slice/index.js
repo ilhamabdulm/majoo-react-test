@@ -5,7 +5,7 @@ import fetchInitData from 'services/init-data';
 export const filterSlice = createSlice({
   name: 'filter',
   initialState: {
-    filter: 0,
+    filter: 2,
   },
   reducers: {
     setFilter: (state, action) => {
