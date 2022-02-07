@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import fetchInitData from 'services/init-data';
 
 export const todoSlice = createSlice({

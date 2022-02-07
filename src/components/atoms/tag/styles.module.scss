@@ -4,6 +4,7 @@
   padding: 0.6rem 1.8rem;
   border-radius: 0.8rem;
   font-weight: 600;
+  text-align: center;
 
   &[data-color='green'] {
     background-color: $ALERT_SUCCESS;

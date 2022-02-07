@@ -22,7 +22,13 @@ function MainPage() {
         <h1>Todo App</h1>
       </header>
 
-      <ListTab />
+      <ListTab
+        buttons={[
+          { name: 'Semua', values: 2 },
+          { name: 'Selesai', values: 1 },
+          { name: 'Belum Selesai', values: 0 },
+        ]}
+      />
       <ListTodo />
 
       <footer className={floating_footer}>

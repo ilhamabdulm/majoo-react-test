@@ -31,7 +31,9 @@ const DrawerDetailTodo = (props) => {
 
         <footer>
           <div className={action_group}>
-            <Button size="small">Ubah</Button>
+            <Button size="small" variant="secondary">
+              Ubah
+            </Button>
             <Button
               size="small"
               onClick={() => {
